@@ -360,15 +360,15 @@ Then open **http://localhost:8501** 🎉
 - Building **dashboards** that turn data into insights
 
 ---
-
 <div align="center">
 
 ## 👤 Author
 
-**Raj Yadav**
+**Raj Ranjit Yadav**
 *Student | Data Engineering • Cloud • AI*
 
 [![GitHub](https://img.shields.io/badge/GitHub-rajryadav4-181717?style=for-the-badge&logo=github)](https://github.com/rajryadav4)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Raj_Yadav-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/rajx463/)
 
 ⭐ **If you found this project interesting, consider giving it a star!** ⭐
 
