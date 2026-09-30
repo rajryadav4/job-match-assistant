@@ -1,0 +1,30 @@
+# Step 5: runs the pipeline every day at 13:00 UTC.
+# Needs a cloud database (Neon/Supabase) because GitHub can't reach your laptop.
+# Add each value below under: Repo -> Settings -> Secrets and variables -> Actions
+name: Daily job pipeline
+
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:   # adds a "Run workflow" button for manual runs
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+      ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+      ADZUNA_COUNTRY: us
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: "5432"
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_SSLMODE: require
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python run_pipeline.py
